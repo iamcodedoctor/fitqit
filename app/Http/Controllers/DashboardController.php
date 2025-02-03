@@ -35,6 +35,12 @@ class DashboardController extends Controller
                                            ->where('smoked_at', '>=', Carbon::now()->startOfWeek())
                                            ->get();
 
-        return view('dashboard', compact('totalSmokeFreeDays', 'totalMoneySaved', 'exercises', 'stressLevels', 'cigarettesSmoked'));
+        $cigarettesData = CigaretteSmoked::where('user_id', $user->id)
+                                  ->where('smoked_at', '>=', Carbon::now()->startOfWeek())
+                                  ->selectRaw('SUM(cigarettes_count) as total_cigarettes, SUM(cost) as total_cost')
+                                  ->first();
+        
+
+        return view('dashboard', compact('totalSmokeFreeDays', 'totalMoneySaved', 'exercises', 'stressLevels', 'cigarettesSmoked', 'cigarettesData'));
     }
 }

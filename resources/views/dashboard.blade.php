@@ -11,26 +11,35 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <!-- Sidebar -->
             <div class="col-span-1 bg-gray-800 text-white p-6 rounded-lg shadow-lg dark:bg-gray-900">
-                <h2 class="text-xl font-semibold mb-4">Summary</h2>
+                <h2 class="text-xl font-semibold mb-4 dark:text-gray-100">Summary</h2>
                 <ul class="space-y-3">
                     <li class="flex justify-between">
-                        <span>Total Smoke-Free Days:</span>
-                        <strong>{{ $totalSmokeFreeDays }}</strong>
+                        <span class="dark:text-gray-300">Total Smoke-Free Days:</span>
+                        <strong class="dark:text-gray-100">{{ $totalSmokeFreeDays }}</strong>
                     </li>
                     <li class="flex justify-between">
-                        <span>Total Money Saved:</span>
-                        <strong>${{ number_format($totalMoneySaved, 2) }}</strong>
+                        <span class="dark:text-gray-300">Total Money Saved:</span>
+                        <strong class="dark:text-gray-100">${{ number_format($totalMoneySaved, 2) }}</strong>
                     </li>
                     <li class="flex justify-between">
-                        <span>Exercises This Week:</span>
-                        <strong>{{ $exercises->count() }}</strong>
+                        <span class="dark:text-gray-300">Exercises This Week:</span>
+                        <strong class="dark:text-gray-100">{{ $exercises->count() }}</strong>
                     </li>
                     <li class="flex justify-between">
-                        <span>Stress Logs This Week:</span>
-                        <strong>{{ $stressLevels->count() }}</strong>
+                        <span class="dark:text-gray-300">Stress Logs This Week:</span>
+                        <strong class="dark:text-gray-100">{{ $stressLevels->count() }}</strong>
+                    </li>
+                    <li class="flex justify-between">
+                        <span class="dark:text-gray-300">Total Cigarettes Smoked This Week:</span>
+                        <strong class="dark:text-gray-100">{{ $cigarettesData->total_cigarettes }}</strong>
+                    </li>
+                    <li class="flex justify-between">
+                        <span class="dark:text-gray-300">Total Money on Cigarettes This Week:</span>
+                        <strong class="dark:text-gray-100">{{ $cigarettesData->total_cost }}</strong>
                     </li>
                 </ul>
             </div>
+
 
             <!-- Note List and Note Editor -->
             <div class="col-span-3 bg-white text-gray-900 p-6 rounded-lg shadow-lg dark:bg-gray-800 dark:text-white">
